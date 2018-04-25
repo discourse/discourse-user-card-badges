@@ -15,3 +15,11 @@
     i {color: $primary;}
   }
 }
+
+.card-image-preview {
+  display: inline-block;
+  margin-right: 10px;
+  img {
+    max-width: 120px;
+  }
+}

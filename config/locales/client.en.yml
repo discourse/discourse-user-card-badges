@@ -3,3 +3,4 @@ en:
     user:
       card_badge:
         title: "User Card Badge"
+        none: "None"
