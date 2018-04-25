@@ -1,0 +1,4 @@
+plugins:
+  user_card_badges_enabled:
+    default: false
+    client: true

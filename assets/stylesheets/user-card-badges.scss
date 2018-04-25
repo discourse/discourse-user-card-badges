@@ -1,0 +1,17 @@
+#user-card, #group-card {
+
+  &.has-card-badge-image .bio {
+    width: 75%;
+  }
+
+  .card-badge {
+    img {
+      max-width: 120px;
+    }
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    font-size: $font-up-5;
+    i {color: $primary;}
+  }
+}
