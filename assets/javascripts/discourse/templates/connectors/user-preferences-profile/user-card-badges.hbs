@@ -1,13 +1,15 @@
-<div class="control-group pref-card-badge">
-  <label class="control-label">{{i18n 'user.card_badge.title'}}</label>
-  <div class="controls">
-    <div class="card-image-preview">
-      {{#if model.card_image_badge}}
-        {{icon-or-image model.card_image_badge}}
-      {{else}}
-        {{i18n 'user.card_badge.none'}}
-      {{/if}}
+{{#if siteSettings.user_card_badges_enabled}}
+  <div class="control-group pref-card-badge">
+    <label class="control-label">{{i18n 'user.card_badge.title'}}</label>
+    <div class="controls">
+      <div class="card-image-preview">
+        {{#if model.card_image_badge}}
+          {{icon-or-image model.card_image_badge}}
+        {{else}}
+          {{i18n 'user.card_badge.none'}}
+        {{/if}}
+      </div>
+      {{#link-to "preferences.card-badge" class="btn btn-small pad-left no-text"}}{{d-icon "pencil"}}{{/link-to}}
     </div>
-    {{#link-to "preferences.card-badge" class="btn btn-small pad-left no-text"}}{{d-icon "pencil"}}{{/link-to}}
   </div>
-</div>
+{{/if}}
