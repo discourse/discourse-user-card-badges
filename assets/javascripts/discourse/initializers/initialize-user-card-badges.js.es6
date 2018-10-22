@@ -5,9 +5,9 @@ function modifyUserCardContents(api) {
   api.modifyClass("component:user-card-contents", {
     classNameBindings: ["hasCardBadgeImage"],
 
-    @computed('user.card_badge.image')
+    @computed("user.card_badge.image")
     hasCardBadgeImage(image) {
-      return image && image.indexOf('fa-') !== 0;
+      return image && image.indexOf("fa-") !== 0;
     }
   });
 }
