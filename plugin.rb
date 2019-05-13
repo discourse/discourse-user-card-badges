@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # name: discourse-user-card-badges
 # about: User Card Badges Plugin
 # version: 0.1
