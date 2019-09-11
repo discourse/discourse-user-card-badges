@@ -19,7 +19,7 @@ describe UserCardBadges::UserCardBadgeController do
 
       expect(user.reload.custom_fields['card_image_badge_id']).to be_blank
 
-      badge.update_attributes image: "wat.com/wat.jpg"
+      badge.update image: "wat.com/wat.jpg"
 
       put :update, params: {
         user_badge_id: user_badge.id, username: user.username
