@@ -1,5 +1,5 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
-import computed from "ember-addons/ember-computed-decorators";
+import computed from "discourse-common/utils/decorators";
 
 function modifyUserCardContents(api) {
   api.modifyClass("component:user-card-contents", {

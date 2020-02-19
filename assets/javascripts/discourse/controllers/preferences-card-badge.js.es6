@@ -1,4 +1,4 @@
-import computed from "ember-addons/ember-computed-decorators";
+import computed from "discourse-common/utils/decorators";
 import { ajax } from "discourse/lib/ajax";
 import BadgeSelectController from "discourse/mixins/badge-select-controller";
 
