@@ -40,9 +40,9 @@ export default Controller.extend({
     save() {
       this.setProperties({ saved: false, saving: true });
 
-      ajax(this.get("user.path") + "/preferences/card-badge", {
+      ajax(`${this.user.path}/preferences/card-badge`, {
         type: "PUT",
-        data: { user_badge_id: this.get("selectedUserBadgeId") }
+        data: { user_badge_id: this.selectedUserBadgeId }
       })
         .then(() => {
           this.setProperties({
