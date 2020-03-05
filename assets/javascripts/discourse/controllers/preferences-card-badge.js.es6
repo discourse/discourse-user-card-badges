@@ -32,14 +32,10 @@ export default Controller.extend({
 
   @computed("selectedUserBadgeId")
   selectedUserBadge(selectedUserBadgeId) {
-    selectedUserBadgeId = parseInt(selectedUserBadgeId);
-    let selectedUserBadge = null;
-    this.selectableUserBadges.forEach(userBadge => {
-      if (userBadge.get("id") === selectedUserBadgeId) {
-        selectedUserBadge = userBadge;
-      }
-    });
-    return selectedUserBadge;
+    return this.selectableUserBadges.findBy(
+      "id",
+      parseInt(selectedUserBadgeId)
+    );
   },
 
   actions: {
