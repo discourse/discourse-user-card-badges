@@ -15,14 +15,13 @@ export default Controller.extend({
   },
 
   @computed("filteredList")
-  selectableUserBadges(items) {
-    items = _.uniq(items, false, e => e.get("badge.name"));
-    items.unshiftObject(
+  selectableUserBadges(filteredList) {
+    return [
       EmberObject.create({
         badge: Badge.create({ name: I18n.t("badges.none") })
-      })
-    );
-    return items;
+      }),
+      ...filteredList.uniqBy("badge.name")
+    ];
   },
 
   @computed("saving")
