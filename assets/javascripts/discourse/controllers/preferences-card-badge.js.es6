@@ -3,7 +3,7 @@ import computed from "discourse-common/utils/decorators";
 import { ajax } from "discourse/lib/ajax";
 import Controller from "@ember/controller";
 import EmberObject from "@ember/object";
-import { isEmpty } from "@ember/utils";
+import { isPresent } from "@ember/utils";
 
 export default Controller.extend({
   saving: false,
@@ -11,7 +11,7 @@ export default Controller.extend({
 
   @computed("model")
   filteredList(model) {
-    return model.filter(b => !isEmpty(b.get("badge.image")));
+    return model.filter(b => isPresent(b.get("badge.image")));
   },
 
   @computed("filteredList")
