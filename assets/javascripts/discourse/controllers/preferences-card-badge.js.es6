@@ -3,14 +3,11 @@ import computed from "discourse-common/utils/decorators";
 import { ajax } from "discourse/lib/ajax";
 import Controller from "@ember/controller";
 import EmberObject from "@ember/object";
-import { alias } from "@ember/object/computed";
 import { isEmpty } from "@ember/utils";
 
 export default Controller.extend({
   saving: false,
   saved: false,
-
-  disableSave: alias("saving"),
 
   @computed("model")
   filteredList(model) {
