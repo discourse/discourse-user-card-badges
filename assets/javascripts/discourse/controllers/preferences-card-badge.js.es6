@@ -19,9 +19,7 @@ export default Controller.extend({
 
   @computed("filteredList")
   selectableUserBadges(items) {
-    items = _.uniq(items, false, function(e) {
-      return e.get("badge.name");
-    });
+    items = _.uniq(items, false, e => e.get("badge.name"));
     items.unshiftObject(
       EmberObject.create({
         badge: Badge.create({ name: I18n.t("badges.none") })
@@ -39,7 +37,7 @@ export default Controller.extend({
   selectedUserBadge(selectedUserBadgeId) {
     selectedUserBadgeId = parseInt(selectedUserBadgeId);
     let selectedUserBadge = null;
-    this.selectableUserBadges.forEach(function(userBadge) {
+    this.selectableUserBadges.forEach(userBadge => {
       if (userBadge.get("id") === selectedUserBadgeId) {
         selectedUserBadge = userBadge;
       }
@@ -48,7 +46,7 @@ export default Controller.extend({
   },
 
   actions: {
-    save: function() {
+    save() {
       this.setProperties({ saved: false, saving: true });
 
       ajax(this.get("user.path") + "/preferences/card-badge", {
