@@ -1,16 +1,20 @@
 import Badge from "discourse/models/badge";
 import computed from "discourse-common/utils/decorators";
 import { ajax } from "discourse/lib/ajax";
+import Controller from "@ember/controller";
+import EmberObject from "@ember/object";
+import { alias } from "@ember/object/computed";
+import { isEmpty } from "@ember/utils";
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   saving: false,
   saved: false,
 
-  disableSave: Ember.computed.alias("saving"),
+  disableSave: alias("saving"),
 
   @computed("model")
   filteredList(model) {
-    return model.filter(b => !Ember.isEmpty(b.get("badge.image")));
+    return model.filter(b => !isEmpty(b.get("badge.image")));
   },
 
   @computed("filteredList")
@@ -19,7 +23,7 @@ export default Ember.Controller.extend({
       return e.get("badge.name");
     });
     items.unshiftObject(
-      Ember.Object.create({
+      EmberObject.create({
         badge: Badge.create({ name: I18n.t("badges.none") })
       })
     );
