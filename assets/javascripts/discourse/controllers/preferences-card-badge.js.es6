@@ -1,11 +1,46 @@
+import Badge from "discourse/models/badge";
 import computed from "discourse-common/utils/decorators";
 import { ajax } from "discourse/lib/ajax";
-import BadgeSelectController from "discourse/mixins/badge-select-controller";
 
-export default Ember.Controller.extend(BadgeSelectController, {
+export default Ember.Controller.extend({
+  saving: false,
+  saved: false,
+
+  disableSave: Ember.computed.alias("saving"),
+
   @computed("model")
   filteredList(model) {
     return model.filter(b => !Ember.isEmpty(b.get("badge.image")));
+  },
+
+  @computed("filteredList")
+  selectableUserBadges(items) {
+    items = _.uniq(items, false, function(e) {
+      return e.get("badge.name");
+    });
+    items.unshiftObject(
+      Ember.Object.create({
+        badge: Badge.create({ name: I18n.t("badges.none") })
+      })
+    );
+    return items;
+  },
+
+  @computed("saving")
+  savingStatus(saving) {
+    return saving ? I18n.t("saving") : I18n.t("save");
+  },
+
+  @computed("selectedUserBadgeId")
+  selectedUserBadge(selectedUserBadgeId) {
+    selectedUserBadgeId = parseInt(selectedUserBadgeId);
+    let selectedUserBadge = null;
+    this.selectableUserBadges.forEach(function(userBadge) {
+      if (userBadge.get("id") === selectedUserBadgeId) {
+        selectedUserBadge = userBadge;
+      }
+    });
+    return selectedUserBadge;
   },
 
   actions: {
