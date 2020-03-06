@@ -32,7 +32,7 @@ export default Controller.extend({
   selectedUserBadge(selectedUserBadgeId) {
     return this.selectableUserBadges.findBy(
       "id",
-      parseInt(selectedUserBadgeId)
+      parseInt(selectedUserBadgeId, 10)
     );
   },
 
