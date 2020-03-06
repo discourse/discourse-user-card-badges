@@ -1,20 +1,48 @@
+import Badge from "discourse/models/badge";
 import computed from "discourse-common/utils/decorators";
 import { ajax } from "discourse/lib/ajax";
-import BadgeSelectController from "discourse/mixins/badge-select-controller";
+import Controller from "@ember/controller";
+import EmberObject from "@ember/object";
 
-export default Ember.Controller.extend(BadgeSelectController, {
+export default Controller.extend({
+  saving: false,
+  saved: false,
+
   @computed("model")
   filteredList(model) {
-    return model.filter(b => !Ember.isEmpty(b.get("badge.image")));
+    return model.filterBy("badge.image");
+  },
+
+  @computed("filteredList")
+  selectableUserBadges(filteredList) {
+    return [
+      EmberObject.create({
+        badge: Badge.create({ name: I18n.t("badges.none") })
+      }),
+      ...filteredList.uniqBy("badge.name")
+    ];
+  },
+
+  @computed("saving")
+  savingStatus(saving) {
+    return saving ? I18n.t("saving") : I18n.t("save");
+  },
+
+  @computed("selectedUserBadgeId")
+  selectedUserBadge(selectedUserBadgeId) {
+    return this.selectableUserBadges.findBy(
+      "id",
+      parseInt(selectedUserBadgeId)
+    );
   },
 
   actions: {
-    save: function() {
+    save() {
       this.setProperties({ saved: false, saving: true });
 
-      ajax(this.get("user.path") + "/preferences/card-badge", {
+      ajax(`${this.user.path}/preferences/card-badge`, {
         type: "PUT",
-        data: { user_badge_id: this.get("selectedUserBadgeId") }
+        data: { user_badge_id: this.selectedUserBadgeId }
       })
         .then(() => {
           this.setProperties({
