@@ -11,6 +11,7 @@ enabled_site_setting :user_card_badges_enabled
 register_asset 'stylesheets/user-card-badges.scss'
 
 after_initialize do
+  whitelist_public_user_custom_field "card_image_badge_id"
 
   add_to_class(:user, :card_image_badge_id) do
     self.custom_fields['card_image_badge_id']
@@ -21,13 +22,13 @@ after_initialize do
     badge_id ? Badge.find_by_id(badge_id) : nil
   end
 
-  require_dependency 'user_serializer'
+  require_dependency 'user_card_serializer'
 
-  class ::UserSerializer
+  class ::UserCardSerializer
     has_one :card_badge, embed: :object, serializer: BadgeSerializer
   end
 
-  add_to_serializer(:user, :card_badge, false) do
+  add_to_serializer(:user_card, :card_badge, false) do
     object.card_image_badge
   end
 
