@@ -17,7 +17,6 @@ after_initialize do
     allow_public_user_custom_field "card_image_badge_id"
   end
 
-
   add_to_class(:user, :card_image_badge_id) do
     self.custom_fields['card_image_badge_id']
   end
