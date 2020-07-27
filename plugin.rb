@@ -11,10 +11,10 @@ enabled_site_setting :user_card_badges_enabled
 register_asset 'stylesheets/user-card-badges.scss'
 
 after_initialize do
-  if respond_to?(:whitelist_public_user_custom_field)
-    whitelist_public_user_custom_field "card_image_badge_id"
-  else
+  if respond_to?(:allow_public_user_custom_field)
     allow_public_user_custom_field "card_image_badge_id"
+  else
+    whitelist_public_user_custom_field "card_image_badge_id"
   end
 
   add_to_class(:user, :card_image_badge_id) do
