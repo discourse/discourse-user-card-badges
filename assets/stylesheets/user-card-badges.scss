@@ -13,7 +13,7 @@
     bottom: 12px;
     font-size: $font-up-5;
     i {
-      color: $primary;
+      color: var(--primary, $primary);
     }
   }
 }
