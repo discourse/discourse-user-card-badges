@@ -1,0 +1,9 @@
+# WARNING: Never edit this file.
+# It will be overwritten when translations are pulled from Crowdin.
+#
+# To work with us on translations, join this project:
+# https://translate.discourse.org/
+
+pt_BR:
+  site_settings:
+    user_card_badges_enabled: "Permitir que usuários escolham uma imagem de emblema para mostrarem em seus cartões de usuário"
