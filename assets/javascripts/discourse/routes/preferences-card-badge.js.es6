@@ -22,12 +22,12 @@ export default RestrictedUserRoute.extend({
     controller.set("model", model);
     controller.set("user", this.modelFor("user"));
 
-    model.forEach(function(userBadge) {
+    model.forEach(function (userBadge) {
       if (
         userBadge.get("badge.image") === controller.get("user.card_image_badge")
       ) {
         controller.set("selectedUserBadgeId", userBadge.get("id"));
       }
     });
-  }
+  },
 });

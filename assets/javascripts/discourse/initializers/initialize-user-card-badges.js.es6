@@ -8,7 +8,7 @@ function modifyUserCardContents(api) {
     @computed("user.card_badge.image")
     hasCardBadgeImage(image) {
       return image && image.indexOf("fa-") !== 0;
-    }
+    },
   });
 }
 
@@ -16,8 +16,8 @@ export default {
   name: "user-card-badges",
 
   initialize() {
-    withPluginApi("0.8.19", api => {
+    withPluginApi("0.8.19", (api) => {
       modifyUserCardContents(api);
     });
-  }
+  },
 };
