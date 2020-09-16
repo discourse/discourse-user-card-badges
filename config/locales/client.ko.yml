@@ -4,4 +4,9 @@
 # To work with us on translations, join this project:
 # https://translate.discourse.org/
 
-ko: 
+ko:
+  js:
+    user:
+      card_badge:
+        title: "사용자 카드 배지"
+        none: "없음"

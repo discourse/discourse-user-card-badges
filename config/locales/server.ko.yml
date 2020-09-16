@@ -4,4 +4,6 @@
 # To work with us on translations, join this project:
 # https://translate.discourse.org/
 
-ko: 
+ko:
+  site_settings:
+    user_card_badges_enabled: "사용자가 배지에 표시 할 배지 이미지를 선택할 수 있도록 허용"
