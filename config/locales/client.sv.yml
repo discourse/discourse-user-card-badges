@@ -8,5 +8,5 @@ sv:
   js:
     user:
       card_badge:
-        title: "Användarkortsbricka"
-        none: "Inga"
+        title: "Användarkortsutmärkelse"
+        none: "Ingen"
