@@ -9,3 +9,4 @@ te:
     user:
       card_badge:
         title: "సభ్యు బ్యాడ్జి కార్డు"
+        none: "None"

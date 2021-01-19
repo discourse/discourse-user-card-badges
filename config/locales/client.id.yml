@@ -8,4 +8,5 @@ id:
   js:
     user:
       card_badge:
+        title: "User Card Badge"
         none: "Tidak ada"

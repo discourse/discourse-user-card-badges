@@ -4,4 +4,9 @@
 # To work with us on translations, join this project:
 # https://translate.discourse.org/
 
-be: 
+be:
+  js:
+    user:
+      card_badge:
+        title: "User Card Badge"
+        none: "None"
