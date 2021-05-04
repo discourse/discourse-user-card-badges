@@ -57,7 +57,6 @@ after_initialize do
   require_dependency 'application_controller'
 
   class UserCardBadges::UserCardBadgeController < ::ApplicationController
-
     def show
     end
 
@@ -69,13 +68,13 @@ after_initialize do
       if user_badge && user_badge.user == user && user_badge.badge.image_upload.present?
         current_user.custom_fields['card_image_badge_id'] = user_badge.badge.id
       else
-        current_user.custom_fields['card_image_badge_id'] = nil
+        current_user.custom_fields.delete('card_image_badge_id')
       end
+
       current_user.save
 
       render body: nil
     end
-
   end
 
   Discourse::Application.routes.prepend do
