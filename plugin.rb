@@ -66,7 +66,7 @@ after_initialize do
       guardian.ensure_can_edit!(user)
 
       user_badge = UserBadge.find_by(id: params[:user_badge_id].to_i)
-      if user_badge && user_badge.user == user && user_badge.badge.image.present?
+      if user_badge && user_badge.user == user && user_badge.badge.image_upload.present?
         current_user.custom_fields['card_image_badge_id'] = user_badge.badge.id
       else
         current_user.custom_fields['card_image_badge_id'] = nil
