@@ -17,7 +17,7 @@ describe UserCardBadges::UserCardBadgeController do
         user_badge_id: user_badge.id, username: user.username
       }, format: :json
 
-      expect(user.reload.custom_fields['card_image_badge_id']).to be_blank
+      expect(user.reload.custom_fields['card_image_badge_id']).to be_nil
 
       badge.update!(image_upload_id: Fabricate(:upload).id)
 
@@ -32,7 +32,7 @@ describe UserCardBadges::UserCardBadgeController do
         username: user.username
       }, format: :json
 
-      expect(user.reload.custom_fields['card_image_badge_id']).to be_blank
+      expect(user.reload.custom_fields['card_image_badge_id']).to be_nil
     end
   end
 end
