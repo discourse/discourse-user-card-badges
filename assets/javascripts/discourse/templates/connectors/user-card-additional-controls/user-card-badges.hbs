@@ -1,5 +1,5 @@
 {{#if user.card_badge}}
   {{#link-to "badges.show" user.card_badge class="card-badge"}}
-    <img src="{{user.card_badge.image}}" alt="{{user.card_badge.name}}">
+    <img src={{user.card_badge.image}} alt={{user.card_badge.name}}>
   {{/link-to}}
 {{/if}}
