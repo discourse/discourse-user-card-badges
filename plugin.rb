@@ -37,7 +37,7 @@ after_initialize do
   end
 
   add_to_serializer(:user, :card_image_badge, false) do
-    card_badge&.image
+    card_badge&.image_upload
   end
 
   add_to_serializer(:user, :card_image_badge_id) do
