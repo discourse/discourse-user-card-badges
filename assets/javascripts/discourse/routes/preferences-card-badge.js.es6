@@ -24,7 +24,7 @@ export default RestrictedUserRoute.extend({
 
     model.forEach(function (userBadge) {
       if (
-        userBadge.get("badge.image") === controller.get("user.card_image_badge")
+        userBadge.get("badge.id") === controller.get("user.card_image_badge_id")
       ) {
         controller.set("selectedUserBadgeId", userBadge.get("id"));
       }

@@ -26,7 +26,7 @@ export default Controller.extend({
 
   @computed("saving")
   savingStatus(saving) {
-    return saving ? I18n.t("saving") : I18n.t("save");
+    return saving ? "saving" : "save";
   },
 
   @computed("selectedUserBadgeId")
