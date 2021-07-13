@@ -5,3 +5,5 @@
 # https://translate.discourse.org/
 
 ar:
+  site_settings:
+    user_card_badges_enabled: "السماح للمستخدمين باختيار صورة الشارة لإظهارها على بطاقة المستخدم الخاصة بهم"
