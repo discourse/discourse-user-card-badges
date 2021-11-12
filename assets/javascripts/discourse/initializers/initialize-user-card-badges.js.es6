@@ -3,6 +3,8 @@ import computed from "discourse-common/utils/decorators";
 
 function modifyUserCardContents(api) {
   api.modifyClass("component:user-card-contents", {
+    pluginId: "discourse-user-card-badges",
+
     classNameBindings: ["hasCardBadgeImage"],
 
     @computed("user.card_badge.image")
