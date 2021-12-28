@@ -8,5 +8,5 @@ it:
   js:
     user:
       card_badge:
-        title: "Distintivo Scheda Utente"
+        title: "Distintivo scheda utente"
         none: "Nessuno"

@@ -6,4 +6,4 @@
 
 es:
   site_settings:
-    user_card_badges_enabled: "Permitir a los usuarios elegir una imagen de medalla para mostrar en su tarjeta de usuario"
+    user_card_badges_enabled: "Permitir a los usuarios elegir una imagen de insignia para mostrar en su tarjeta de usuario"
