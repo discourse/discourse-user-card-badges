@@ -8,5 +8,5 @@ es:
   js:
     user:
       card_badge:
-        title: "Medalla de tarjeta de usuario"
+        title: "Insignia de tarjeta de usuario"
         none: "Ninguna"
