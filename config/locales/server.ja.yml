@@ -6,4 +6,4 @@
 
 ja:
   site_settings:
-    user_card_badges_enabled: "自分のユーザーカードに表示するバッジ画像の選択を各ユーザーに許可する"
+    user_card_badges_enabled: "ユーザーカードに表示するバッジの画像をユーザーが選択することを許可する"
