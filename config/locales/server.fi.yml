@@ -6,4 +6,4 @@
 
 fi:
   site_settings:
-    user_card_badges_enabled: "Salli käyttäjän valita ansiomerkin kuva, joka näkyy käyttäjäkortissaan"
+    user_card_badges_enabled: "Salli käyttäjän valita käyttäjäkortissaan näkyvä kunniamerkin kuva"

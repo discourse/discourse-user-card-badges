@@ -8,5 +8,5 @@ fi:
   js:
     user:
       card_badge:
-        title: "Käyttäjäkortin ansiomerkki"
+        title: "Käyttäjäkortin kunniamerkki"
         none: "Ei mitään"
