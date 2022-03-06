@@ -5,6 +5,7 @@
 # version: 0.1
 # authors: Neil Lalonde
 # url: https://github.com/discourse/discourse-user-card-badges
+# transpile_js: true
 
 enabled_site_setting :user_card_badges_enabled
 
