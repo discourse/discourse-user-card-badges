@@ -4,6 +4,7 @@ import computed from "discourse-common/utils/decorators";
 import { ajax } from "discourse/lib/ajax";
 import Controller from "@ember/controller";
 import EmberObject from "@ember/object";
+import bootbox from "bootbox";
 
 export default Controller.extend({
   saving: false,
