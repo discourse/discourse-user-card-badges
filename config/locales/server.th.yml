@@ -5,3 +5,5 @@
 # https://translate.discourse.org/
 
 th:
+  site_settings:
+    user_card_badges_enabled: "อนุญาตให้ผู้ใช้เลือกภาพเหรียญที่จะแสดงบนบัตรผู้ใช้"
