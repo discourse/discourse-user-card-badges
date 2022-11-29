@@ -8,5 +8,5 @@ nl:
   js:
     user:
       card_badge:
-        title: "Badge van gebruikersprofiel"
+        title: "Gebruikerskaartbadge"
         none: "Geen"
