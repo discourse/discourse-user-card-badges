@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe ::UserCardBadges do
   let(:user) { Fabricate(:user) }
@@ -9,7 +9,7 @@ describe ::UserCardBadges do
 
   before do
     SiteSetting.user_card_badges_enabled = true
-    UserCustomField.create!(user_id: user.id, name: 'card_image_badge_id', value: badge.id)
+    UserCustomField.create!(user_id: user.id, name: "card_image_badge_id", value: badge.id)
     user.reload
   end
 
