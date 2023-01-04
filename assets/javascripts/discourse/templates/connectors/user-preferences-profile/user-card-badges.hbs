@@ -4,12 +4,18 @@
     <div class="controls">
       <div class="card-image-preview">
         {{#if model.card_image_badge}}
-          <img src={{model.card_image_badge.url}} alt={{user.card_badge.name}}>
+          <img
+            src={{model.card_image_badge.url}}
+            alt={{user.card_badge.name}}
+          />
         {{else}}
           {{i18n "user.card_badge.none"}}
         {{/if}}
       </div>
-      {{#link-to "preferences.card-badge" class="btn btn-small pad-left no-text"}}{{d-icon "pencil-alt"}}{{/link-to}}
+      {{#link-to
+        "preferences.card-badge"
+        class="btn btn-small pad-left no-text"
+      }}{{d-icon "pencil-alt"}}{{/link-to}}
     </div>
   </div>
 {{/if}}
