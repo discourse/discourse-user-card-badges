@@ -5,3 +5,5 @@
 # https://translate.discourse.org/
 
 bg:
+  site_settings:
+    user_card_badges_enabled: "Позволете на потребителите да избират изображение на значка, което да се показва на тяхната потребителска карта"
