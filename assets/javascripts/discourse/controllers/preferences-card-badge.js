@@ -4,9 +4,10 @@ import computed from "discourse-common/utils/decorators";
 import { ajax } from "discourse/lib/ajax";
 import Controller from "@ember/controller";
 import EmberObject from "@ember/object";
-import bootbox from "bootbox";
+import { inject as service } from "@ember/service";
 
 export default Controller.extend({
+  dialog: service(),
   saving: false,
   saved: false,
 
@@ -55,7 +56,7 @@ export default Controller.extend({
         })
         .catch(() => {
           this.set("saving", false);
-          bootbox.alert(I18n.t("generic_error"));
+          this.dialog.alert(I18n.t("generic_error"));
         });
     },
   },
