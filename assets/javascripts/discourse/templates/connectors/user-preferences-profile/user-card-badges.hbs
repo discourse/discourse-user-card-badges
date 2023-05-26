@@ -12,10 +12,10 @@
           {{i18n "user.card_badge.none"}}
         {{/if}}
       </div>
-      {{#link-to
-        "preferences.card-badge"
+      <LinkTo
+        @route="preferences.card-badge"
         class="btn btn-small pad-left no-text"
-      }}{{d-icon "pencil-alt"}}{{/link-to}}
+      >{{d-icon "pencil-alt"}}</LinkTo>
     </div>
   </div>
 {{/if}}
