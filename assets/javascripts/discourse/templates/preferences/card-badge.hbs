@@ -9,23 +9,23 @@
     <div class="control-group">
       <label class="control-label"></label>
       <div class="controls">
-        {{combo-box
-          value=selectedUserBadgeId
-          nameProperty="badge.name"
-          content=selectableUserBadges
-          onChange=(action (mut selectedUserBadgeId))
-        }}
+        <ComboBox
+          @value={{selectedUserBadgeId}}
+          @nameProperty="badge.name"
+          @content={{selectableUserBadges}}
+          @onChange={{action (mut selectedUserBadgeId)}}
+        />
       </div>
     </div>
 
     <div class="control-group">
       <div class="controls">
-        {{d-button
+        <DButton
           class="btn-primary"
-          disabled=saving
-          label=savingStatus
-          action=(action "save")
-        }}
+          @disabled={{saving}}
+          @label={{savingStatus}}
+          @action={{action "save"}}
+        />
 
         {{#if saved}}{{i18n "saved"}}{{/if}}
       </div>
