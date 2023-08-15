@@ -6,4 +6,4 @@
 
 pl_PL:
   site_settings:
-    user_card_badges_enabled: "Zezwól użytkownikom wybór obrazka odznaki jaki ma sie pojawiać w karcie użytkownika"
+    user_card_badges_enabled: "Pozwól użytkownikom wybrać obraz odznaki, który ma być wyświetlany na karcie użytkownika"
