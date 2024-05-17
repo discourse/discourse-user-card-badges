@@ -11,6 +11,17 @@ enabled_site_setting :user_card_badges_enabled
 register_asset "stylesheets/user-card-badges.scss"
 
 after_initialize do
+  module ::UserCardBadges
+    PLUGIN_NAME = "discourse-user-card-badges"
+
+    class Engine < ::Rails::Engine
+      engine_name PLUGIN_NAME
+      isolate_namespace UserCardBadges
+    end
+  end
+
+  require_relative "lib/user_card_badges/user_card_serializer_extension"
+
   if respond_to?(:allow_public_user_custom_field)
     allow_public_user_custom_field "card_image_badge_id"
   else
@@ -24,11 +35,7 @@ after_initialize do
     badge_id ? Badge.find_by_id(badge_id) : nil
   end
 
-  require_dependency "user_card_serializer"
-
-  class ::UserCardSerializer
-    has_one :card_badge, embed: :object, serializer: BadgeSerializer
-  end
+  reloadable_patch { UserCardSerializer.prepend(UserCardBadges::UserCardSerializerExtension) }
 
   add_to_serializer(:user_card, :card_badge, false) { object.card_image_badge }
 
@@ -39,16 +46,9 @@ after_initialize do
   add_to_serializer(:user, :include_card_image_badge?, false) { can_edit }
   add_to_serializer(:user, :include_card_image_badge_id?, false) { can_edit }
 
-  module ::UserCardBadges
-    class Engine < ::Rails::Engine
-      engine_name "user_card_badges"
-      isolate_namespace UserCardBadges
-    end
-  end
-
-  require_dependency "application_controller"
-
   class UserCardBadges::UserCardBadgeController < ::ApplicationController
+    requires_plugin UserCardBadges::PLUGIN_NAME
+
     def show
     end
 
