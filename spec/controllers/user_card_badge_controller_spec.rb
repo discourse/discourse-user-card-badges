@@ -10,6 +10,8 @@ describe UserCardBadges::UserCardBadgeController do
     let(:badge) { Fabricate(:badge) }
     let(:user_badge) { BadgeGranter.grant(badge, user) }
 
+    before { SiteSetting.user_card_badges_enabled = true }
+
     it "sets the user's card image to the badge" do
       log_in_user user
       put :update, params: { user_badge_id: user_badge.id, username: user.username }, format: :json
