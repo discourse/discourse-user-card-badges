@@ -4,9 +4,8 @@
 # To work with us on translations, join this project:
 # https://translate.discourse.org/
 
-te:
+ug:
   js:
     user:
       card_badge:
-        title: "సభ్యు బ్యాడ్జి కార్డు"
-        none: "ఏదీ లేదు"
+        none: "يوق"
