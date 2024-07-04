@@ -8,16 +8,6 @@ export default RestrictedUserRoute.extend({
     return UserBadge.findByUsername(this.modelFor("user").get("username"));
   },
 
-  renderTemplate() {
-    return this.render({ into: "user" });
-  },
-
-  // A bit odd, but if we leave to /preferences we need to re-render that outlet
-  deactivate() {
-    this._super();
-    this.render("preferences", { into: "user", controller: "preferences" });
-  },
-
   setupController(controller, model) {
     controller.set("model", model);
     controller.set("user", this.modelFor("user"));
