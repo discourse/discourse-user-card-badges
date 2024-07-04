@@ -2,9 +2,9 @@
 
 RSpec.describe "User card badges plugin", type: :system do
   before { SiteSetting.user_card_badges_enabled = true }
-  let(:user) { Fabricate(:user) }
-  let!(:topic) { Fabricate(:topic, user: user) }
-  let(:badge) { Fabricate(:badge, image_upload: Fabricate(:upload)) }
+  fab!(:user)
+  fab!(:topic) { Fabricate(:topic, user: user) }
+  fab!(:badge) { Fabricate(:badge, image_upload: Fabricate(:upload)) }
   let!(:user_badge) { BadgeGranter.grant(badge, user) }
 
   it "works" do
