@@ -37,14 +37,20 @@ after_initialize do
 
   reloadable_patch { UserCardSerializer.prepend(UserCardBadges::UserCardSerializerExtension) }
 
-  add_to_serializer(:user_card, :card_badge, false) { object.card_image_badge }
+  add_to_serializer(:user_card, :card_badge, respect_plugin_enabled: false) do
+    object.card_image_badge
+  end
 
-  add_to_serializer(:user, :card_image_badge, false) { card_badge&.image_upload }
+  add_to_serializer(:user, :card_image_badge, respect_plugin_enabled: false) do
+    card_badge&.image_upload
+  end
 
   add_to_serializer(:user, :card_image_badge_id) { card_badge&.id }
 
-  add_to_serializer(:user, :include_card_image_badge?, false) { can_edit }
-  add_to_serializer(:user, :include_card_image_badge_id?, false) { can_edit }
+  add_to_serializer(:user, :include_card_image_badge?, respect_plugin_enabled: false) { can_edit }
+  add_to_serializer(:user, :include_card_image_badge_id?, respect_plugin_enabled: false) do
+    can_edit
+  end
 
   class UserCardBadges::UserCardBadgeController < ::ApplicationController
     requires_plugin UserCardBadges::PLUGIN_NAME
