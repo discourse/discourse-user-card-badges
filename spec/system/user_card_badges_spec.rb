@@ -27,6 +27,6 @@ RSpec.describe "User card badges plugin", type: :system do
 
     find("[data-user-card='#{user.username}']").click
 
-    expect(page).to have_css("a.card-badge img[src='#{badge.image_upload.url}']")
+    expect(page).to have_css("a.user-card-badge-link img[src='#{badge.image_upload.url}']")
   end
 end
