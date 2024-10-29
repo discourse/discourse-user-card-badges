@@ -8,5 +8,5 @@ sq:
   js:
     user:
       card_badge:
-        title: "Karta e anëtarit"
-        none: "Asnjë"
+        title: "User Card Badge"
+        none: "None"

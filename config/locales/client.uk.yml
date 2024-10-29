@@ -9,4 +9,4 @@ uk:
     user:
       card_badge:
         title: "Візитка користувача"
-        none: "Немає"
+        none: "None"
