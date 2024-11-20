@@ -11,10 +11,10 @@
       <div class="controls">
         <ComboBox
           class="user-card-badge-select"
-          @value={{selectedUserBadgeId}}
+          @value={{this.selectedUserBadgeId}}
           @nameProperty="badge.name"
-          @content={{selectableUserBadges}}
-          @onChange={{action (mut selectedUserBadgeId)}}
+          @content={{this.selectableUserBadges}}
+          @onChange={{action (mut this.selectedUserBadgeId)}}
         />
       </div>
     </div>
@@ -23,12 +23,12 @@
       <div class="controls">
         <DButton
           class="btn-primary"
-          @disabled={{saving}}
-          @label={{savingStatus}}
+          @disabled={{this.saving}}
+          @label={{this.savingStatus}}
           @action={{action "save"}}
         />
 
-        {{#if saved}}{{i18n "saved"}}{{/if}}
+        {{#if this.saved}}{{i18n "saved"}}{{/if}}
       </div>
     </div>
   </form>

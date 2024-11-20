@@ -1,12 +1,12 @@
-{{#if siteSettings.user_card_badges_enabled}}
+{{#if this.siteSettings.user_card_badges_enabled}}
   <div class="control-group pref-card-badge">
     <label class="control-label">{{i18n "user.card_badge.title"}}</label>
     <div class="controls">
       <div class="card-image-preview">
-        {{#if model.card_image_badge}}
+        {{#if this.model.card_image_badge}}
           <img
-            src={{model.card_image_badge.url}}
-            alt={{user.card_badge.name}}
+            src={{this.model.card_image_badge.url}}
+            alt={{this.user.card_badge.name}}
           />
         {{else}}
           {{i18n "user.card_badge.none"}}
