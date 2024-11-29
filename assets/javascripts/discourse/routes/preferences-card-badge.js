@@ -1,12 +1,12 @@
 import UserBadge from "discourse/models/user-badge";
 import RestrictedUserRoute from "discourse/routes/restricted-user";
 
-export default RestrictedUserRoute.extend({
-  showFooter: true,
+export default class PreferencesCardBadge extends RestrictedUserRoute {
+  showFooter = true;
 
   model() {
     return UserBadge.findByUsername(this.modelFor("user").get("username"));
-  },
+  }
 
   setupController(controller, model) {
     controller.set("model", model);
@@ -19,5 +19,5 @@ export default RestrictedUserRoute.extend({
         controller.set("selectedUserBadgeId", userBadge.get("id"));
       }
     });
-  },
-});
+  }
+}
