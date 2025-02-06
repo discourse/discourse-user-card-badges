@@ -1,5 +1,5 @@
+import computed from "discourse/lib/decorators";
 import { withPluginApi } from "discourse/lib/plugin-api";
-import computed from "discourse-common/utils/decorators";
 
 function modifyUserCardContents(api) {
   api.modifyClass("component:user-card-contents", {

@@ -2,9 +2,9 @@ import Controller from "@ember/controller";
 import EmberObject, { action } from "@ember/object";
 import { service } from "@ember/service";
 import { ajax } from "discourse/lib/ajax";
+import computed from "discourse/lib/decorators";
 import Badge from "discourse/models/badge";
-import computed from "discourse-common/utils/decorators";
-import I18n from "I18n";
+import { i18n } from "discourse-i18n";
 
 export default class PreferencesCardBadgeController extends Controller {
   @service dialog;
@@ -21,7 +21,7 @@ export default class PreferencesCardBadgeController extends Controller {
   selectableUserBadges(filteredList) {
     return [
       EmberObject.create({
-        badge: Badge.create({ name: I18n.t("badges.none") }),
+        badge: Badge.create({ name: i18n("badges.none") }),
       }),
       ...filteredList.uniqBy("badge.name"),
     ];
@@ -57,7 +57,7 @@ export default class PreferencesCardBadgeController extends Controller {
       })
       .catch(() => {
         this.set("saving", false);
-        this.dialog.alert(I18n.t("generic_error"));
+        this.dialog.alert(i18n("generic_error"));
       });
   }
 }
