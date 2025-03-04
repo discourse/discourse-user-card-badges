@@ -1,9 +1,3 @@
-# WARNING: Never edit this file.
-# It will be overwritten when translations are pulled from Crowdin.
-#
-# To work with us on translations, join this project:
-# https://translate.discourse.org/
-
-bs_BA:
+bs:
   site_settings:
     user_card_badges_enabled: "Dozvoli korisnicima da odaberu bedž sliku i prikažu je na svojoj korisničkoj kartici"

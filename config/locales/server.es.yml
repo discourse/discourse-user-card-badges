@@ -1,9 +1,3 @@
-# WARNING: Never edit this file.
-# It will be overwritten when translations are pulled from Crowdin.
-#
-# To work with us on translations, join this project:
-# https://translate.discourse.org/
-
 es:
   site_settings:
     user_card_badges_enabled: "Permitir a los usuarios elegir una imagen de insignia para mostrar en su tarjeta de usuario"
