@@ -1,17 +1,20 @@
-import computed from "discourse/lib/decorators";
 import { withPluginApi } from "discourse/lib/plugin-api";
 
 function modifyUserCardContents(api) {
-  api.modifyClass("component:user-card-contents", {
-    pluginId: "discourse-user-card-badges",
-
-    classNameBindings: ["hasCardBadgeImage"],
-
-    @computed("user.card_badge.image")
-    hasCardBadgeImage(image) {
-      return image && image.indexOf("fa-") !== 0;
-    },
-  });
+  api.modifyClass(
+    "component:user-card-contents",
+    (Superclass) =>
+      class extends Superclass {
+        get classNames() {
+          const result = [...super.classNames];
+          const image = this.get("user.card_badge.image");
+          if (image && !image.startsWith("fa-")) {
+            result.push("has-card-badge-image");
+          }
+          return result;
+        }
+      }
+  );
 }
 
 export default {
