@@ -8,7 +8,7 @@ function modifyUserCardContents(api) {
         get classNames() {
           const result = [...super.classNames];
           const image = this.user.card_badge?.image;
-          if (image && !image.includes("fa-")) {
+          if (image && !image.startsWith("fa-")) {
             result.push("has-card-badge-image");
           }
           return result;
