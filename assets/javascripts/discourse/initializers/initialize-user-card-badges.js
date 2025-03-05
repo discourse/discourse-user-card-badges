@@ -7,7 +7,7 @@ function modifyUserCardContents(api) {
       class extends Superclass {
         get classNames() {
           const result = [...super.classNames];
-          const image = this.user.card_badge?.image;
+          const image = this.get("user.card_badge.image");
           if (image && !image.startsWith("fa-")) {
             result.push("has-card-badge-image");
           }
