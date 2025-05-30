@@ -1,9 +1,0 @@
-{{#if this.user.card_badge}}
-  <LinkTo
-    @route="badges.show"
-    @model={{this.user.card_badge}}
-    class="card-badge"
-  >
-    <img src={{this.user.card_badge.image}} alt={{this.user.card_badge.name}} />
-  </LinkTo>
-{{/if}}
