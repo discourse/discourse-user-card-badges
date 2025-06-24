@@ -5,3 +5,5 @@
 # https://translate.discourse.org/
 
 el:
+  site_settings:
+    user_card_badges_enabled: "Επιτρέψτε στους χρήστες να επιλέξουν την εικόνα σήματος που θα εμφανίζεται στην κάρτα χρήστη τους"
