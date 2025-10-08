@@ -21,7 +21,7 @@ export default {
   name: "user-card-badges",
 
   initialize() {
-    withPluginApi("0.8.19", (api) => {
+    withPluginApi((api) => {
       modifyUserCardContents(api);
     });
   },
