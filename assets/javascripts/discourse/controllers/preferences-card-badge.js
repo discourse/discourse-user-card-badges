@@ -2,6 +2,7 @@ import Controller from "@ember/controller";
 import EmberObject, { action } from "@ember/object";
 import { service } from "@ember/service";
 import { ajax } from "discourse/lib/ajax";
+import { uniqueItemsFromArray } from "discourse/lib/array-tools";
 import computed from "discourse/lib/decorators";
 import Badge from "discourse/models/badge";
 import { i18n } from "discourse-i18n";
@@ -14,7 +15,7 @@ export default class PreferencesCardBadgeController extends Controller {
 
   @computed("model")
   filteredList(model) {
-    return model.filterBy("badge.image");
+    return model.filter((item) => item.badge.image);
   }
 
   @computed("filteredList")
@@ -23,7 +24,7 @@ export default class PreferencesCardBadgeController extends Controller {
       EmberObject.create({
         badge: Badge.create({ name: i18n("badges.none") }),
       }),
-      ...filteredList.uniqBy("badge.name"),
+      ...uniqueItemsFromArray(filteredList, "badge.name"),
     ];
   }
 
@@ -34,9 +35,8 @@ export default class PreferencesCardBadgeController extends Controller {
 
   @computed("selectedUserBadgeId")
   selectedUserBadge(selectedUserBadgeId) {
-    return this.selectableUserBadges.findBy(
-      "id",
-      parseInt(selectedUserBadgeId, 10)
+    return this.selectableUserBadges.find(
+      (item) => item.id === parseInt(selectedUserBadgeId, 10)
     );
   }
 
