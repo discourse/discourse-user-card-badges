@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "User card badges plugin", type: :system do
+RSpec.describe "User card badges plugin" do
   before { SiteSetting.user_card_badges_enabled = true }
   fab!(:user)
   fab!(:topic) { Fabricate(:topic, user: user) }
