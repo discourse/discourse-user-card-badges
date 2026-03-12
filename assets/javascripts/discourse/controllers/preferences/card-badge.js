@@ -1,9 +1,8 @@
 import Controller from "@ember/controller";
-import EmberObject, { action } from "@ember/object";
+import EmberObject, { action, computed } from "@ember/object";
 import { service } from "@ember/service";
 import { ajax } from "discourse/lib/ajax";
 import { uniqueItemsFromArray } from "discourse/lib/array-tools";
-import computed from "discourse/lib/decorators";
 import Badge from "discourse/models/badge";
 import { i18n } from "discourse-i18n";
 
@@ -14,29 +13,29 @@ export default class PreferencesCardBadgeController extends Controller {
   saved = false;
 
   @computed("model")
-  filteredList(model) {
-    return model.filter((item) => item.badge.image);
+  get filteredList() {
+    return this.model.filter((item) => item.badge.image);
   }
 
   @computed("filteredList")
-  selectableUserBadges(filteredList) {
+  get selectableUserBadges() {
     return [
       EmberObject.create({
         badge: Badge.create({ name: i18n("badges.none") }),
       }),
-      ...uniqueItemsFromArray(filteredList, "badge.name"),
+      ...uniqueItemsFromArray(this.filteredList, "badge.name"),
     ];
   }
 
   @computed("saving")
-  savingStatus(saving) {
-    return saving ? "saving" : "save";
+  get savingStatus() {
+    return this.saving ? "saving" : "save";
   }
 
   @computed("selectedUserBadgeId")
-  selectedUserBadge(selectedUserBadgeId) {
+  get selectedUserBadge() {
     return this.selectableUserBadges.find(
-      (item) => item.id === parseInt(selectedUserBadgeId, 10)
+      (item) => item.id === parseInt(this.selectedUserBadgeId, 10)
     );
   }
 
